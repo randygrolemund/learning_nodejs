@@ -18,6 +18,7 @@
   "homepage": "https://github.com/randygrolemund/learning_nodejs#readme",
   "devDependencies": {
     "eslint": "^6.7.2",
+    "eslint-config-google": "^0.14.0",
     "nodemon": "^2.0.1"
   }
 }
