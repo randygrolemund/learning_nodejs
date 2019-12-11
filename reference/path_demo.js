@@ -14,8 +14,8 @@ console.log(path.dirname(__filename));
 console.log(path.extname(__filename));
 
 // create path object
-
-console.log(path.parse(__filename).base);
+const filename = path.parse(__filename).base;
+console.log(filename);
 
 // concatenate paths
 
