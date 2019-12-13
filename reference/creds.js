@@ -1,6 +1,10 @@
-const alert = require('alert-node')
-const prompt = require('prompt');
+// npm install prompt alert-node bcrypt
 
+const alert = require('alert-node');
+const prompt = require('prompt');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+const someotherpasword = 'test12345';
 const properties = [
   {
     name: 'username',
@@ -22,12 +26,21 @@ prompt.get(properties, function(err, result) {
   if (result.username == '') {
     alert('Username cannot be null!');
   } else {
+    const hash = bcrypt.hashSync(result.password, saltRounds);
     console.log('Command-line input received:');
     console.log('  Username: ' + result.username);
     console.log('  Password: ' + result.password);
+    console.log(hash);
+
+    bcrypt.compare(someotherpasword, hash, function(err, res) {
+      if (res == true) {
+        console.log('true');
+      } else {
+        console.log('false');
+      }
+    });
   };
 });
-
 
 function onErr(err) {
   console.log(err);
