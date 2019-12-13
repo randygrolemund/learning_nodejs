@@ -1,6 +1,12 @@
 const fs = require('fs');
-const hour = new Date();
 const dir = './test';
+const hour = new Date();
+const hours = hour.getHours();
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
 
 if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir);
@@ -9,9 +15,11 @@ if (!fs.existsSync(dir)) {
   console.log('Folder already exists, skipping...');
 };
 
-const hours = hour.getHours();
+rl.question('What is your name ? ', function(name) {
+  if (hours > 20) {
+    console.log(`Good evening, ${name}!`);
+  };
+  rl.close();
+});
 
-if (hours > 20) {
-  console.log('Good evening!');
-};
 
