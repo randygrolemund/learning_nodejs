@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 // npm install prompt alert-node bcrypt
 
 const alert = require('alert-node');
